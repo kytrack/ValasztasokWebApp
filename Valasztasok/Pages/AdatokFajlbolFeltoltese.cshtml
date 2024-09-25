@@ -1,0 +1,9 @@
+﻿@page
+@model Valasztasok.Pages.AdatokFajlbolFeltolteseModel
+@{
+}
+<form method="post" enctype="multipart/form-data">
+    <label>Add meg a fajlt</label>
+    <input type="file" asp-for="Feltoltes" />
+    <input type="submit" value="Feltöltés" />
+</form>
