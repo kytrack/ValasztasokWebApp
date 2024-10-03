@@ -42,7 +42,7 @@ namespace Valasztasok.Pages
             StreamReader sr = new StreamReader(UploadFilePath);
 
             sr.ReadLine();
-
+            List<Part> partok = _context.Partok.ToList();
             while (!sr.EndOfStream)
             {
                 var line = sr.ReadLine();
@@ -52,8 +52,11 @@ namespace Valasztasok.Pages
                 ujJelolt.Kerulet =int.Parse(elemek[0]);
                 ujJelolt.SzavazatokSzama = int.Parse(elemek[1]);
                 ujJelolt.Nev = elemek[2] + " "+elemek[3];
-                //ujJelolt.Part = elemek[4];
-
+                ujJelolt.PartRovidNev = elemek[4];
+                if (!_context.Partok.Select(x => x.RovidNev).Contains(elemek[4]))
+                {
+                    partok.Add(new Part {RovidNev = elemek[4]});
+                }
                 _context.Add(ujJelolt);
             }
 
