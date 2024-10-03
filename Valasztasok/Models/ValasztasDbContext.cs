@@ -10,7 +10,7 @@ namespace Valasztasok.Models
         { 
 
         }
-        public DbSet<Jelolt> Jelolt { get; set;
+        public DbSet<Jelolt> Jelolt { get; set; }
         public DbSet<Part> Partok { get; set; }
     }
 }
